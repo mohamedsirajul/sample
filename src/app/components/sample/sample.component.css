@@ -1,3 +1,21 @@
-.names{
+/* .names{
     margin-top: 50px;
 }
+.example-spacer {
+    flex: 1 1 auto;
+  } */
+.example-form{
+    margin-top: 50px;
+    margin-left: 20px;
+}
+.example-full-width{
+    width: 40%;
+
+}
+.buttons{
+    margin-left: 16%;
+}
+  .mat-mdc-radio-button ~ .mat-mdc-radio-button {
+    margin-left: 16px;
+  }
+  

@@ -1,5 +1,48 @@
-<h1 class="names">Enter Your Name: <input type="text" [(ngModel)]="name" (change)="onchanges()"> </h1>
+<form class="example-form">
+    <h1><mat-form-field class="example-full-width" appearance="outline">
+        <mat-label>Name</mat-label>
+        <input matInput placeholder="Enter Your Name" [(ngModel)]="name" [ngModelOptions]="{standalone: true}">
+      </mat-form-field></h1>
+    <h1>
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Age</mat-label>
+            <input matInput placeholder="Enter Your Age" [(ngModel)]="age" [ngModelOptions]="{standalone: true}">
+        </mat-form-field>
+    </h1>
+      <h1>
+        <mat-form-field class="example-full-width"  appearance="outline">
+            <mat-label>DOB</mat-label>
+            <input matInput [matDatepicker]="picker" [(ngModel)]="dob" [ngModelOptions]="{standalone: true}">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker ></mat-datepicker>
+        </mat-form-field>
+      </h1>
+      <h1>
+        <mat-radio-group class="example-full-width"  aria-label="Gender" [(ngModel)]="gender" [ngModelOptions]="{standalone: true}">
+            <mat-label>Gender</mat-label>
+            <mat-radio-button value="Male">Male</mat-radio-button>
+            <mat-radio-button value="Female">Female</mat-radio-button>
+        </mat-radio-group>
+      </h1>
+      <h1>
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matInput placeholder="Enter Your Email" [(ngModel)]="email" [ngModelOptions]="{standalone: true}">
+        </mat-form-field>
+    </h1>
+    
+    <mat-form-field class="example-full-width" appearance="outline"  >
+      <mat-label>Address</mat-label>
+      <textarea matInput placeholder="Enter Your Address" [(ngModel)]="address" [ngModelOptions]="{standalone: true}"></textarea>
+    </mat-form-field>
+</form>
+<button mat-flat-button class="buttons" color="warn" (click)="submit()">Submit</button>
 
-<button mat-raised-button color="warn" (click)="onchange()">Submit</button>
 
-<h1>{{selectname}}</h1>
+<h3>{{selectedname}}</h3>
+<h3>{{selectedage}}</h3>
+<h3>{{selecteddob}}</h3>
+<h3>{{selectedgender}}</h3>
+<h3>{{selectedemail}}</h3>
+<h3>{{selectedaddress}}</h3>

@@ -8,19 +8,29 @@ import { Component } from '@angular/core';
 export class SampleComponent {
 
   name : any;
+  age: any;
+  dob: any;
+  gender: any;
+  email: any;
+  address: any;
 
-  selectname : any;
-  // ngOnInit(): void {
-  //   console.log(this.name);
+  selectedname : any;
+  selectedage : any;
+  selecteddob : any;
+  selectedgender : any;
+  selectedemail : any;
+  selectedaddress :any;
+
+  submit(){
+    this.selectedname = this.name;
+    this.selectedage = this.age;
+    this.selecteddob = this.dob;
+    this.selectedgender = this.gender;
+    this.selectedemail = this.email;
+    this.selectedaddress = this.address;
+   
+
     
-  // }
-  onchange(){
-    this.selectname = this.name
-    console.log(this.name);
   }
-  onchanges(){
-    this.selectname = this.name
-    alert(this.selectname)
-    console.log(this.name);
-  }
+
 }
