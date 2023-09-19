@@ -9,15 +9,7 @@
             <input matInput placeholder="Enter Your Age" [(ngModel)]="age" [ngModelOptions]="{standalone: true}">
         </mat-form-field>
     </h1>
-      <h1>
-        <mat-form-field class="example-full-width"  appearance="outline">
-            <mat-label>DOB</mat-label>
-            <input matInput [matDatepicker]="picker" [(ngModel)]="dob" [ngModelOptions]="{standalone: true}">
-            <mat-hint>MM/DD/YYYY</mat-hint>
-            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker ></mat-datepicker>
-        </mat-form-field>
-      </h1>
+
       <h1>
         <mat-radio-group class="example-full-width"  aria-label="Gender" [(ngModel)]="gender" [ngModelOptions]="{standalone: true}">
             <mat-label>Gender</mat-label>
@@ -25,12 +17,6 @@
             <mat-radio-button value="Female">Female</mat-radio-button>
         </mat-radio-group>
       </h1>
-      <h1>
-        <mat-form-field class="example-full-width" appearance="outline">
-            <mat-label>Email</mat-label>
-            <input matInput placeholder="Enter Your Email" [(ngModel)]="email" [ngModelOptions]="{standalone: true}">
-        </mat-form-field>
-    </h1>
     
     <mat-form-field class="example-full-width" appearance="outline"  >
       <mat-label>Address</mat-label>
@@ -40,9 +26,59 @@
 <button mat-flat-button class="buttons" color="warn" (click)="submit()">Submit</button>
 
 
-<h3>{{selectedname}}</h3>
+<!-- <h3>{{selectedname}}</h3>
 <h3>{{selectedage}}</h3>
 <h3>{{selecteddob}}</h3>
 <h3>{{selectedgender}}</h3>
 <h3>{{selectedemail}}</h3>
-<h3>{{selectedaddress}}</h3>
+<h3>{{selectedaddress}}</h3> -->
+
+
+
+<!-- <table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+      <th>DOB</th>
+      <th>Gender</th>
+      <th>Email</th>
+      <th>Address</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Siraji</td>
+      <td>19</td>
+      <td>20</td>
+      <td>male</td>
+      <td>siraji@gmail.com</td>
+      <td>1/81</td>
+
+    </tr>
+  </tbody>
+
+</table> -->
+
+<div class="container" *ngIf="selectedArr.length != 0">
+  <div class="table-wrapper">
+    <table class="fl-table">
+        <thead>
+        <tr>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Gender</th>
+          <th>Address</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor = "let data of selectedArr;let i=index" >
+          <td>{{data.Name}}</td>
+          <td>{{data.Age}}</td>
+          <td>{{data.Gender}}</td>
+          <td>{{data.Address}}</td>
+        </tr>
+        <tbody>
+    </table>
+  </div>
+  </div>

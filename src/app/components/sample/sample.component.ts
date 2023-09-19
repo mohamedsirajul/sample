@@ -9,28 +9,44 @@ export class SampleComponent {
 
   name : any;
   age: any;
-  dob: any;
   gender: any;
-  email: any;
   address: any;
 
   selectedname : any;
   selectedage : any;
-  selecteddob : any;
   selectedgender : any;
-  selectedemail : any;
   selectedaddress :any;
+  selectedData : any;
+  //array
+  selectedArr : any[] = []
 
   submit(){
+
+
     this.selectedname = this.name;
     this.selectedage = this.age;
-    this.selecteddob = this.dob;
     this.selectedgender = this.gender;
-    this.selectedemail = this.email;
     this.selectedaddress = this.address;
    
+    //object
+    this.selectedData = {
+      Name : this.selectedname,
+      Age : this.selectedage,
+      Gender : this.selectedgender,
+      Address : this.selectedaddress
+    }
 
+
+    this.selectedArr.push(this.selectedData)
+
+    console.log(this.selectedData)
+    console.log(this.selectedArr);
     
+    this.name = ""
+    this.age = ""
+    this.gender = ""
+    this.address = ""
+
   }
 
 }
