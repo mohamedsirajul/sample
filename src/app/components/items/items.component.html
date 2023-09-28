@@ -1,0 +1,81 @@
+<!-- <mat-toolbar class="mat-typography">
+  <div class="mob-nav">
+    <nav class="navbar navbar-expand-lg text-uppercase fixed-top" id="mainNav">
+        <div class="container">
+         <div *ngIf="!showSearch">
+           <a style="color:white !important" class="navbar-brand">ShoppinG</a>
+         </div>
+         <div fxFlex></div>
+         <span class="example-spacer"></span>
+          <button mat-icon-button  (click)="openSearch()">
+              <mat-icon>search</mat-icon>
+          </button>   
+           <button type="button" class="cart">
+             <span>
+               <mat-icon style="font-size:25px;color:white;" routerLink="/cart">shopping_cart</mat-icon>
+             </span>
+             <span id="cart_value" class="icon-cart__badge">{{ counter }}</span>
+           </button>
+         </div>
+        <br>
+    </nav>
+</div>
+
+</mat-toolbar> -->
+
+<mat-toolbar class="main-header mat-elevation-z4" [class.hidden]="toggleSearch">
+  <div class="mob-nav">
+    <nav class="navbar navbar-expand-lg text-uppercase fixed-top" id="mainNav">
+        <div class="container">
+         <div *ngIf="!showSearch">
+           <a style="color:white !important" class="navbar-brand">ShoppinG</a>
+         </div>
+         <div fxFlex></div>
+         <span class="example-spacer"></span>
+          <button mat-icon-button  (click)="openSearch()">
+              <mat-icon style="font-size:25px;color:white;">search</mat-icon>
+          </button>
+           <button type="button" class="cart">
+             <span>
+               <mat-icon style="font-size:25px;color:white;" routerLink="/cart">shopping_cart</mat-icon>
+             </span>
+             <span id="cart_value" class="icon-cart__badge">{{ counter }}</span>
+           </button>
+         </div>
+        <br>
+    </nav>
+</div>
+</mat-toolbar>
+
+<mat-toolbar class="search-block" [class.active]="toggleSearch">
+		<mat-toolbar-row style="padding: 0 5px;">
+			<button class="search-icon" mat-icon-button disabled>
+        <mat-icon>search</mat-icon>
+      </button>
+
+      <input class="search-control" type="text"  placeholder="Search" [(ngModel)]="searchText" >
+      <button mat-icon-button (click)="searchClose()">
+        <mat-icon color="white">close</mat-icon>
+      </button> 
+      <button type="button" class="cart">
+        <span>
+          <mat-icon style="font-size:25px;color:white;" routerLink="/cart" >shopping_cart</mat-icon>
+        </span>
+        <span id="cart_value" class="icon-cart__badge">{{ counter }}</span>
+
+      </button> 
+  </mat-toolbar-row>
+  </mat-toolbar>
+
+<div class="container">
+    <div class="row">
+        <ng-container>
+            <div class="card col-md-3" *ngFor = "let data of productArr; let i = index;">
+                <img src="{{data.image}}" alt="">
+                <h4><strong>Name:</strong>{{data.name}}</h4>
+                <p><strong>Price:</strong>₹{{data.price}}</p>
+                <button mat-raised-button class="btn btn-primary" (click)="addtocart(i)">Add to cart</button>
+            </div>
+        </ng-container>
+    </div>
+</div>

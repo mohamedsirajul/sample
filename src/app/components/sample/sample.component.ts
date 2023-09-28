@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-sample',
@@ -21,19 +21,30 @@ export class SampleComponent {
   userDetailsForm : FormGroup | any
   //array
   selectedArr : any[] = []
+  emailFormControl = new FormControl('', [Validators.required, Validators.email]);
 
   constructor(
     private formBuilder: FormBuilder,
   ){
     this.userDetailsForm = this.formBuilder.group({
-      name: ["", Validators.required],
-      age:["", Validators.required],
-      gender:["", Validators.required],
-      address:["", Validators.required]
+      name: ["", [Validators.required]],
+      age:["", [Validators.required]],
+      gender:["", [Validators.required]],
+      address:["", [Validators.required]],
+      email : ["" ,[Validators.required, Validators.email]],
+      
+      Referrals: this.formBuilder.array([]),
     })
   }
+  // public checkUserForm = (controlName:any, errorName:any ) => {
+  //   return this.userDetailsForm[controlName].hasError(errorName);
+  // }
 
+  get dataControls() {
+    return this.userDetailsForm.controls;
+  }
   submit(){
+
 
     if(this.userDetailsForm.valid) {
       console.log(this.userDetailsForm.value)

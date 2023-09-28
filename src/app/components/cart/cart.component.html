@@ -1,0 +1,24 @@
+<h1>Your Cart</h1>
+
+<div class="container" *ngIf="cartData.length != 0">
+    <div class="table-wrapper">
+      <table class="fl-table">
+          <thead>
+          <tr>
+            <th>Id</th>
+            <th>Image</th>
+            <th>Name</th>
+            <th>price</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor = "let data of cartData;let i=index" >
+            <td>{{data.id}}</td>
+            <img src="{{data.image}}" alt="">
+            <td>{{data.name}}</td>
+            <td>{{data.price}}</td>
+          </tr>
+          <tbody>
+      </table>
+    </div>
+    </div>
